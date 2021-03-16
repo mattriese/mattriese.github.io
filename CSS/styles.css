@@ -1,0 +1,127 @@
+
+
+
+body{
+  margin: 0;
+  text-align: center;
+  font-family: 'Courier Prime', monospace;
+  color: #40514E;
+}
+
+h1{
+  padding-top: 80px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin: 50px auto 0 auto;
+  color: #66BFBF;
+  line-height: 2;
+}
+
+h2{
+  font-family: 'Press Start 2P', cursive;
+  color: #66BFBF;
+  font-weight: normal;
+  padding: 20px;
+}
+
+#subtitle{
+  font-size: 1.5rem;
+  font-weight: normal;
+  line-height: 2;
+}
+
+h3{
+  font-family: 'VT323', monospace;
+  color: #11999E;
+}
+
+a{
+  color: #11999E;
+}
+hr{
+  width: 4%;
+  margin: 70px auto;
+  border: dotted #EAF6F6 6px;
+  border-bottom: none;
+
+}
+
+.intro-text{
+  color: #40514E;
+  width: 40%;
+  text-align: center;
+  margin: auto;
+  line-height: 2;
+}
+.skill-row{
+  width: 50%;
+  margin: 100px auto 100px auto;
+  text-align: left;
+  line-height:2;
+}
+
+.hoverimg{
+  width: 25%;
+  float: left;
+  padding-right: 30px;
+}
+
+.progimg{
+  width: 25%;
+  float: right;
+  padding-left: 30px;
+}
+
+.portrait{
+  border-radius: 50%;
+}
+
+.top{
+  background-color: azure;
+  position:relative;
+  padding-top: 20px;
+  }
+
+.middle-container{
+}
+
+.bottom-container{
+  background-color: #66BFBF;
+  padding: 50px;
+  color: #EAF6F6;
+}
+
+.bottomcloud{
+  position: absolute;
+  left: 300px;
+  bottom: 300px;
+}
+.topcloud{
+  position: absolute;
+  left: 60%;
+  padding-top: 30px;
+}
+.btn {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: linear-gradient(#0ccfbb, #089c8d);
+
+    padding: 10px;
+    margin: 80px auto 80px auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.footer-link{
+  text-decoration: none;
+  margin: 0 10px 0 10px;
+}
+
+.copyright{
+  padding: 15px;
+}
