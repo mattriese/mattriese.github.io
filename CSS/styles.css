@@ -125,15 +125,29 @@ hr{
 }
 
 #navbar {
-  display: inline-block;
-  padding: 3px 100px;
-  position: sticky;
+  margin: auto;
+  position: fixed;
   top: 0;
   z-index: 2;
   background-color: azure;
+  text-align: center;
+  height: 40px;
+  left: 0;      /* ADDED */
+  top: 0;       /* ADDED */
+  width: 100%;  /* ADDED */
 }
 
 .nav {
-  padding: 50px 50px;
-  text-align: center;
+  padding: 20px 50px;
+  display: inline-block;
+  margin: auto;
 }
+
+/* #test {
+  height: 50px;
+  background-color: azure;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+} */
