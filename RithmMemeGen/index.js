@@ -37,12 +37,12 @@ form.addEventListener('submit', function (e) {
     const text = document.createElement('div');
     text.innerText = document.getElementById(`${position}`).value;
     text.style.position = 'absolute';
-    text.style[position] = 0;
+    text.style[position] = '15px';
     text.style.textAlign = 'center';
     text.style.fontFamily = 'Impact,Charcoal,sans-serif';
     text.style.textShadow = '0 0 7px black';
     text.style.color = 'white';
-    text.style.fontSize = "2rem";
+    text.style.fontSize = "3rem";
     text.style.width = '100%';
     text.style.margin = '15px auto;';
     container.appendChild(text);
