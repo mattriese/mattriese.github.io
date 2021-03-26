@@ -1,0 +1,66 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+header {
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 4.5rem;
+    color: #f2f2f2;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 28px;
+}
+
+.inputxt {
+    font-size: 1.2rem;
+}
+
+.input {
+    padding: 8px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f2f2f2;
+}
+
+.btn {
+    background: rgba(0,212,255,1);
+    background-image: -webkit-linear-gradient(top, rgba(0,212,255,1), rgba(2,0,36,1));
+    background-image: -moz-linear-gradient(top, rgba(0,212,255,1), rgba(2,0,36,1));
+    background-image: -ms-linear-gradient(top, rgba(0,212,255,1), rgba(2,0,36,1));
+    background-image: -o-linear-gradient(top, rgba(0,212,255,1), rgba(2,0,36,1));
+    background-image: linear-gradient(to bottom, rgba(0,212,255,1), rgba(2,0,36,1));
+    -webkit-border-radius: 58;
+    -moz-border-radius: 58;
+    border-radius: 58px;
+    font-family: Arial;
+    color: #f2f2f2;
+    font-size: 17px;
+    padding: 3px 14px 3px 13px;
+    border: solid #1f628d 0px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  .btn:hover {
+    background: rgba(2,0,36,1);
+    background-image: -webkit-linear-gradient(top, rgba(2,0,36,1), rgba(0,212,255,1));
+    background-image: -moz-linear-gradient(top, rgba(2,0,36,1), rgba(0,212,255,1));
+    background-image: -ms-linear-gradient(top, rgba(2,0,36,1), rgba(0,212,255,1));
+    background-image: -o-linear-gradient(top, rgba(2,0,36,1), rgba(0,212,255,1));
+    background-image: linear-gradient(to bottom, rgba(2,0,36,1), rgba(0,212,255,1));
+    text-decoration: none;
+  }

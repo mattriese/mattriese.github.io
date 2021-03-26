@@ -37,9 +37,9 @@ a{
   color: #11999E;
 }
 hr{
-  width: 4%;
+  width: 7%;
   margin: 70px auto;
-  border: dotted #EAF6F6 6px;
+  border: dotted #c0dede 6px;
   border-bottom: none;
 
 }
@@ -138,9 +138,9 @@ hr{
 }
 
 .nav {
-  padding: 20px 50px;
+  padding: 0 50px;
   display: inline-block;
-  margin: auto;
+  margin: 10px auto;
 }
 
 /* #test {
