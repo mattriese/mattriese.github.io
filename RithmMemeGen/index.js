@@ -6,26 +6,25 @@ form.addEventListener('submit', function (e) {
   // create container div
   const container = document.createElement('div');
   container.style.position = 'relative';
-  container.style.margin = "15px";
+  container.style.margin = '15px auto';
+  container.style.width = '600px';
 
   // create image element and append to container div
-  const image = document.createElement('img');
+    const image = document.createElement('img');
   image.src = document.querySelector('#imgurl').value;
-  image.style.width = '100%';
-  //image.style.position = 'absolute';
-  //image.style.textAlign = 'center';
-  //image.style.margin = '0 auto';
-  container.appendChild(image);
+  image.style.width = '600px';
+  container.appendChild(image)
 
   // function calls to add top and bottom text
   appendText('top');
   appendText('bottom');
 
-   //create remove button
+  //create remove button
   const btn = document.createElement('button');
   btn.innerText = 'x';
   btn.style.position = 'absolute';
-  btn.style.right = '1%';
+  btn.style.right = 0;
+  btn.style.zIndex = 1;
   btn.addEventListener('click', (evt) => evt.target.parentNode.remove());
   container.appendChild(btn);
 
@@ -37,12 +36,12 @@ form.addEventListener('submit', function (e) {
     const text = document.createElement('div');
     text.innerText = document.getElementById(`${position}`).value;
     text.style.position = 'absolute';
-    text.style[position] = '15px';
+    text.style[position] = '10px';
     text.style.textAlign = 'center';
     text.style.fontFamily = 'Impact,Charcoal,sans-serif';
     text.style.textShadow = '0 0 7px black';
     text.style.color = 'white';
-    text.style.fontSize = "3rem";
+    text.style.fontSize = '3rem';
     text.style.width = '100%';
     text.style.margin = '15px auto;';
     container.appendChild(text);
