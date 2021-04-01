@@ -44,7 +44,6 @@ function createCards(colors) {
     front.classList.add('cardFace', 'front');
     const back = document.createElement('div');
     back.classList.add('cardFace', 'back');
-    //card.style.backgroundImage = "url('playingCard.jpg')";
     back.classList.add(`${color}`);
     cardInner.dataset.temp = false;
     cardInner.dataset.matched = false;
@@ -55,13 +54,6 @@ function createCards(colors) {
     gameBoard.appendChild(card);
   }
 }
-
-/* <div class="card">
-  <div class="card__inner is-flipped">
-    <div class="card__face card__face--back"></div>
-   <div class="card__face card__face--front"></div>
-  </div>
-</div> */
 
 
 /** Flip a card face-up. */
@@ -80,26 +72,17 @@ function unFlipCard(card) {
 
 /** Handle clicking on a card: this could be first-card or second-card. */
 function handleCardClick(e) {
-  console.log(e);
   // if this card is already matched or is temporarily face-up, don't do anything
-  console.log("matched= ", e.target.parentNode.dataset.matched);
-  console.log("temp= ", e.target.parentNode.dataset.temp);
-  console.log("currentTemps.length= ", document.querySelectorAll('[data-temp="true"]').length);
-  if(e.target.parentNode.dataset.matched === true || e.target.parentNode.dataset.temp === true || document.querySelectorAll('[data-temp="true"]').length >= 2){
+  if(e.target.parentNode.dataset.matched === "true" || e.target.parentNode.dataset.temp === "true" || document.querySelectorAll('[data-temp="true"]').length >= 2){
     console.log("I should return");
     return;
   }
   // if it is an eligable card, flip it over
-
   else{
-    console.log("didn't return");
     flipCard(e.target);
-
   }
   let currentTemps = document.querySelectorAll('[data-temp="true"]');
   // if this is the second of a potential pair to be clicked, compare their colors
-  console.log('currentTemps.length= ', currentTemps.length);
-  console.log('currentTemps= ', currentTemps);
   if(currentTemps.length === 2){
     //if the colors match...
     const currentBacks = [currentTemps[0].firstChild, currentTemps[1].firstChild];
