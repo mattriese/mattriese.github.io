@@ -28,26 +28,27 @@ function shuffle(items) {
   return items;
 }
 
-/** Create card for every color in colors (each will appear twice)
- * Each div DOM element will have:
- * - a class with the value of the color
- * - a click listener for each card to handleCardClick */
+/** Create card for every color in colors (each will appear twice) **/
 function createCards(colors) {
   const gameBoard = document.getElementById("game");
 
   for (let color of colors) {
+    //create outer card container
     const card = document.createElement('div');
     card.classList.add('card');
+    //create inner card container with state data-attribute
     const cardInner = document.createElement('div');
     cardInner.classList.add('cardInner', 'is-flipped');
+    cardInner.dataset.state = 'faceDown';
+    //create card front face
     const front = document.createElement('div');
     front.classList.add('cardFace', 'front');
+    //create card back face and add color
     const back = document.createElement('div');
     back.classList.add('cardFace', 'back');
     back.classList.add(`${color}`);
-    cardInner.dataset.temp = false;
-    cardInner.dataset.matched = false;
     cardInner.addEventListener("click", handleCardClick);
+    //stack card layers and add to gameboard
     cardInner.appendChild(back);
     cardInner.appendChild(front);
     card.appendChild(cardInner);
@@ -59,74 +60,43 @@ function createCards(colors) {
 /** Flip a card face-up. */
 function flipCard(card) {
   card.parentNode.classList.toggle('is-flipped');
-  card.parentNode.dataset.temp = true;
+  card.parentNode.dataset.state = 'faceUpUnmatched';
 }
 
 
 /** Flip a card face-down. */
 function unFlipCard(card) {
   card.classList.toggle('is-flipped');
-  card.dataset.temp = false;
+  card.dataset.state = 'faceDown';
 }
 
 
 /** Handle clicking on a card: this could be first-card or second-card. */
 function handleCardClick(e) {
   // if this card is already matched or is temporarily face-up, don't do anything
-  if(e.target.parentNode.dataset.matched === "true" || e.target.parentNode.dataset.temp === "true" || document.querySelectorAll('[data-temp="true"]').length >= 2){
-    console.log("I should return");
+  if(e.target.parentNode.dataset.state === 'faceUpMatched' || e.target.parentNode.dataset.state === 'faceUpUnmatched' || document.querySelectorAll('[data-state="faceUpUnmatched"]').length >= 2){
     return;
   }
-  // if it is an eligable card, flip it over
+  // if it is an eligible card, flip it over
   else{
     flipCard(e.target);
   }
-  let currentTemps = document.querySelectorAll('[data-temp="true"]');
+  let currentFaceUpUnmatched = document.querySelectorAll('[data-state="faceUpUnmatched"]');
   // if this is the second of a potential pair to be clicked, compare their colors
-  if(currentTemps.length === 2){
-    //if the colors match...
-    const currentBacks = [currentTemps[0].firstChild, currentTemps[1].firstChild];
-    if(currentBacks[0].classList[2] === currentBacks[1].classList[2]){
-      currentTemps[0].dataset.matched = true;
-      currentTemps[1].dataset.matched = true;
-      currentTemps[0].dataset.temp = false;
-      currentTemps[1].dataset.temp = false;
+  if(currentFaceUpUnmatched.length === 2){
+    const cardXColor = currentFaceUpUnmatched[0].firstChild.classList[2];
+    const cardYColor = currentFaceUpUnmatched[1].firstChild.classList[2];
+    if(cardXColor === cardYColor){ //if the colors match...
+      currentFaceUpUnmatched[0].dataset.state = 'faceUpMatched';
+      currentFaceUpUnmatched[1].dataset.state = 'faceUpMatched';
     }
     else{ //if their colors are different
-    setTimeout(unFlipCard, 1000, currentTemps[0]);
-    setTimeout(unFlipCard, 1000, currentTemps[1]);
+    setTimeout(unFlipCard, FOUND_MATCH_WAIT_MSECS, currentFaceUpUnmatched[0]);
+    setTimeout(unFlipCard, FOUND_MATCH_WAIT_MSECS, currentFaceUpUnmatched[1]);
     }
   }
 }
 
-
-      //if temps now === 2, then then compare their classlist[1]'s, if same,
-      //set both of their matched=true and temp=false.
-      // if(temps === 2){ //replace with is temp undefined
-      //   let currentTemps = document.querySelectorAll('[data-temp=true]')
-      //   if(currentTemps[0].classList[1] === currentTemps[1].classList[1]){
-      //     currentTemps[0].dataset.matched = true;
-      //     currentTemps[1].dataset.matched = true;
-      //     //currentTemps[0].dataset.temp = false;
-      //     //currentTemps[1].dataset.temp = false;
-
- //if temps !== 2, then wait one second, and flip both temps over (set background to white), reset temp cound in game, change each of their
-      //temp values to false.
-
-      // Since there's only ever 1 temp, plus an e.target to work with as 'temps', maybe just set a variable 'temp' to mean the first
-      //      temp clicked on. so on each click, first check if temp is undefined, if yes, then set current e.target to temp. if not
-      //      undefined, then compare temp.classList[1] to e.target.classList[1]. if they are ===, then change their matched properies,
-      //      reset temp to undefined, and increment gameboard.dataset.totalMatched by 2. If they are not the same colors, then
-
-      // const gameChildren = document.querySelector('#game').children;
-      // let temps = 0;
-      // for(let i = 0; i < gameChildren.length; i++ ){
-      //   if(gameChildren[i].temp === true){
-      //     temps++;
-      //   }
-      // }
-      // if(temps === 2){
-      //   if()
 
 /*
 1. Create cards by looping over the pre-shuffled colors[] array, assigning each color to the class attribute of each card.
