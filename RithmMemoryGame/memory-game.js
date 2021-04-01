@@ -82,12 +82,19 @@ function unFlipCard(card) {
 function handleCardClick(e) {
   console.log(e);
   // if this card is already matched or is temporarily face-up, don't do anything
-  if(e.target.dataset.matched === true || e.target.dataset.temp === true || document.querySelectorAll('[data-temp="true"]').length >= 2){
+  console.log("matched= ", e.target.parentNode.dataset.matched);
+  console.log("temp= ", e.target.parentNode.dataset.temp);
+  console.log("currentTemps.length= ", document.querySelectorAll('[data-temp="true"]').length);
+  if(e.target.parentNode.dataset.matched === true || e.target.parentNode.dataset.temp === true || document.querySelectorAll('[data-temp="true"]').length >= 2){
+    console.log("I should return");
     return;
   }
   // if it is an eligable card, flip it over
+
   else{
+    console.log("didn't return");
     flipCard(e.target);
+
   }
   let currentTemps = document.querySelectorAll('[data-temp="true"]');
   // if this is the second of a potential pair to be clicked, compare their colors
